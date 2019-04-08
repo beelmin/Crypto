@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>CRYPTO | Bitcoin mjenjacnica</title>
+<link rel="stylesheet" href="css/mijenjaj.css">
+<link rel="icon" type="image/png" href="slike/logo.png" />
+
+
+</head>
+
+<body>
+
+<div class="header">
+	<img id = "logo" src = "slike/logo.png" alt="LOGO" >
+	<img id = "meni" src ="slike/meni.png" alt = "MENI">
+	<ul>
+ 	 	<li><a href="index.html">Pocetna</a></li>
+		<li><a href="mijenjaj.html">Mijenjaj</a></li>
+  		<li><a href="bitcoin.html">Bitcoin</a></li>
+  		<li><a href="#p1">O nama</a></li>
+	</ul>
+	
+</div>
+
+<div class="mijenjaj">
+	<h1 id="text1"> Cime placam </h1>
+	<h1 id ="text2"> Sta dobivam </h1>
+	<img id ="bitcoins" src = "slike/bitcoins.png" alt = "BITCOINS">
+	<img  id ="bank" src = "slike/bank.png" alt = "BANK">
+	<img onclick="Zamjena()" id ="zamjena" src ="slike/zamjena.png" alt = "ZAMJENA">
+	<h1 id ="text3"> Bankovni racun </h1>
+	<h1 id ="text4"> Bitcoin </h1>
+	<form>
+  		<input type="text" id = "bam" name="bam">
+		<p id ="f1"> BAM </p>
+		<input type="text" id = "bitcoin" name="bitcoin" >
+		<p id ="f2"> BTC </p>
+  		<p id ="f3"> BTC adresa (tu saljemo) </p>
+  		<input type="text" id="btc" name="btc"> 
+		<p id ="f4"> OIB platitelja </p>
+		<input type="text" id="oib" name="oib"> 
+		<p id ="f5"> E-mail </p>
+		<input type="text" id="email" name="email"> 
+  		<input type="submit" id ="potvrdi" value="Potvrdi">
+	</form> 
+</div>
+
+<div class = "footer">
+	<img id = "logo1" src = "slike/logo.png" alt="LOGO" >	
+	<p id = "p1" >CRYPTO je prva Bitcoin mjenjacnica u <br>Sarajevu gdje mozete kupiti ili prodati <br> bitcoin.</p>
+	<h1 id = "h1" > Pratite nas </h1>
+	<p id ="linkovi"><a href="https://github.com/beelmin" target="_blank">Ruhotina Belmin</a><br><a href="https://github.com/kr3s0" target="_blank">Kreso Tarik</a></p>
+	<h1 id ="dokum"> Dokumentacija </h1>
+	<p id = "skini"><a href="https://crypto-mjenjacnica.neocities.org/dokumentacijaCRYPTO.pdf" target="_blank">Skinite dokumentaciju</a></p>
+	<p id = "pogledaj"><a href="https://vimeo.com/313680805?fbclid=IwAR2-k3DrvSVHd7dDXSacSg9YUcoYyGN8rm347v-6Ja3nMSsnuVhnAZt_p0M" target="_blank">Pogledajte video</a></p>
+	<h1 id="posjete"> Brojac posjeta </h1>
+	<div id="brojac" align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-150W36ZdD81Aw479-10.gif' border='0' alt='counter'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=150W36ZdD81Aw479'></script></div>
+	<h1 id="pocetak"><a href="mijenjaj.html"> Vrati se na pocetak</a></h1>		
+</div>
+<canvas class="snow"></canvas>
+<script src="js/skripta.js"></script>
+<script src="js/snow.js"></script>
+<script>
+	let bam = document.querySelector('#bam');
+	bam.addEventListener('keydown',changeBitcoin);
+	bam.addEventListener('blur',()=>{
+	    document.querySelector('#bitcoin').value="";
+	    document.querySelector('#bam').value="";
+	});
+	function changeBitcoin(event){
+        let broj = parseInt(bam.value);
+        let bitcoin = (broj/2)*0.0003215864;
+        if(isNaN(bitcoin)){
+            document.querySelector('#bitcoin').value = "Premala vrijednost BAM-a";
+            return;
+		}
+        document.querySelector('#bitcoin').value = bitcoin;
+    }
+</script>
+</body>
+
+</html>
